@@ -1,0 +1,31 @@
+<template>
+    <div class="card"> 
+       <div class="card-body"> 
+           <h5 class="card-title">{{product.name}}</h5> 
+           <p class="card-text">Price: <b>${{product.price}}</b></p> 
+           <button 
+               class="btn mt-3"
+               :class="cartQuantity ? 'btn-success' :  'btn-danger'"
+               @click="addToCart(product.id)"
+               :disabled="!cartQuantity">
+               {{cartQuantity ? "Add to Cart" : "Out of stock"}}
+           </button> 
+       </div> 
+   </div>
+</template>
+
+<script>
+    export default{
+        props: ["product"],
+        computed: {
+            cartQuantity() {
+                return this.product.quantity;
+            }
+        },
+        methods: {
+            addToCart(id){
+                this.$store.dispatch("addToCart", id);
+            }
+        }
+    }
+</script>
