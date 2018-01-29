@@ -5,10 +5,10 @@
            <p class="card-text">Price: <b>${{product.price}}</b></p> 
            <button 
                class="btn mt-3"
-               :class="cartQuantity ? 'btn-success' :  'btn-danger'"
+               :class="inCartQuantity ? 'btn-success' :  'btn-danger'"
                @click="addToCart(product.id)"
-               :disabled="!cartQuantity">
-               {{cartQuantity ? "Add to Cart" : "Out of stock"}}
+               :disabled="!inCartQuantity">
+               {{inCartQuantity ? "Add to Cart" : "Out of stock"}}
            </button> 
        </div> 
    </div>
@@ -18,7 +18,7 @@
     export default{
         props: ["product"],
         computed: {
-            cartQuantity() {
+            inCartQuantity() {
                 return this.product.quantity;
             }
         },

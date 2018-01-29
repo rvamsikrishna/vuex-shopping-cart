@@ -29,12 +29,13 @@ export const store = new Vuex.Store({
     },
     mutations: {
         setUpProducts: (state, productsPayload) => {
+            //sets the state's  products property to the products array recieved as payload
             state.products = productsPayload;
         },
         addToCart: (state, productId) => {
             //find the product in the products list
             let product = state.products.find((product) => product.id === productId);
-
+            //find the product in the cart list
             let cartProduct = state.cart.find((product) => product.id === productId);
 
             if (cartProduct) {
@@ -54,7 +55,7 @@ export const store = new Vuex.Store({
         removeFromCart: (state, productId) => {
             //find the product in the products list
             let product = state.products.find((product) => product.id === productId);
-
+            //find the product in the cart list
             let cartProduct = state.cart.find((product) => product.id === productId);
 
             cartProduct.quantity--;
@@ -62,12 +63,13 @@ export const store = new Vuex.Store({
             product.quantity++;
         },
         deleteFromCart: (state, productId) => {
+            //find the product in the products list
             let product = state.products.find((product) => product.id === productId);
-
+            //find the product index in the cart list
             let cartProductIndex = state.cart.findIndex((product) => product.id === productId);
-
+            //srt back the quantity of the product to intial quantity
             product.quantity = state.cart[cartProductIndex].stock;
-
+            // remove the product from the cart
             state.cart.splice(cartProductIndex, 1);
         },
         showToast: (state, toastText) => {

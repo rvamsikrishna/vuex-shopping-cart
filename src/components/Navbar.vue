@@ -1,5 +1,5 @@
 <template>    
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark">
       <a class="navbar-brand" href="#"><b>My Shop</b></a>
     
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
