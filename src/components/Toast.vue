@@ -19,13 +19,11 @@
         watch: {
             show(newVal) {
                 this.isActive = !!newVal;
-            }
-            ,isActive(newVal) {
+            },
+            isActive(newVal) {
                 if(this.show !== !!newVal){
                     this.$emit("hide-toast", newVal);
-                    //alert("hi")
                 }
-              //  alert("hi")
                 this.setTimeout();
             }
         },
