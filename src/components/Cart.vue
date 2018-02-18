@@ -29,7 +29,7 @@
                   </button>
                   <span class="mx-2">{{product.quantity}}</span>
                   <button 
-                      @click="addToCart(product.id)" 
+                      @click="increaseInCart(product.id)" 
                       :disabled="product.quantity === product.stock"
                       class="btn btn-outline-success btn-small">
                       +
@@ -53,31 +53,27 @@
 </template>
  
 <script>
-    import {mapState, mapGetters} from 'vuex'
     export default{
-        data() {
-            return{
-            
-            };
-        },
+        props: ["cart"],
         computed: {
-            ...mapState([
-                "cart"
-            ]),
-            ...mapGetters([
-                "cartSize",
-                "cartTotalAmount"
-            ])
-        },
+            cartSize() {
+                return this.cart.length;
+            },
+            cartTotalAmount() {
+                return this.cart.reduce((total, product) => {
+                    return total + (product.price * product.quantity);
+                }, 0);
+            }
+         },
         methods: {
-            addToCart(id) {
-                this.$store.dispatch("addToCart", id);
+            increaseInCart(id) {
+                this.$emit("increase-in-cart", id);
             },
             removeFromCart(id) {
-                this.$store.dispatch("removeFromCart", id);
+                this.$emit("remove-from-cart", id);
             },
             deleteFromCart(id) {
-                this.$store.dispatch("deleteFromCart", id);
+                this.$emit("delete-from-cart", id);
             }
         }
     } 

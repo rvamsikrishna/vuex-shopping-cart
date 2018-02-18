@@ -24,7 +24,7 @@
         },
         methods: {
             addToCart(id){
-                this.$store.dispatch("addToCart", id);
+				            this.$emit("add-to-cart", id);
             }
         }
     }
