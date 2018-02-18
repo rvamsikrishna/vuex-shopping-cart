@@ -2,17 +2,6 @@
 
 Checkout the working demo [here](https://rvamsikrishna.github.io/vuex-shopping-cart/)
 
-```
-# clone the project
-git clone https://rvamsikrishna.github.io/vuex-shopping-cart/ vuex-shopping-cart
+This is built without using vuex to demonstrate the problems in managing state.
 
-# change directory
-cd vuex-shopping-cart
-
-# install dependencies
-npm install
-
-# start the dev server
-npm run dev
-
-```
+You can find out the version of the apo using vuex [here](https://github.com/rvamsikrishna/vuex-shopping-cart)
