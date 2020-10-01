@@ -12,7 +12,7 @@ cd vuex-shopping-cart
 # install dependencies
 npm install
 
-# start the dev server
-npm run dev
+# start the Developer server
+npm run developer 
 
 ```
